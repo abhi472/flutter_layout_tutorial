@@ -13,10 +13,38 @@ Widget buildGrid() {
   children: _buildGridTiles(30));
 }
 
-List<Container> _buildGridTiles(int count) {
-  return new List<Container>.generate(
+List<Stack> _buildGridTiles(int count) {
+  return new List<Stack>.generate(
       count,
-          (int index) => new Container(child: new Image.asset('assets/pic.png')
+          (int index) =>
+      new Stack(
+        alignment: new Alignment(-1.0, 1.0),
+        children: [
+          new Image.asset('assets/pic.png'),
+          new Row(
+            children: [
+              new Expanded(
+                child: new Container(
+                  decoration: new BoxDecoration(
+                      color: Colors.black45
+                  ),
+                  child: new Text(
+                    'pic.jpg',
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(5.0),
+
+                ),
+              ),
+            ],
+          ),
+
+        ],
       )
   );
 }
